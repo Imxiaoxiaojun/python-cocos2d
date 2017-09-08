@@ -19,6 +19,9 @@ class BootStrap(cocos.layer.Layer):
 
     def on_mouse_press(self, x, y, buttons, modifiers):
         print x, y, buttons
+
+
 if __name__ == "__main__":
     cocos.director.director.init(caption="coco_snake")
-    cocos.director.director.run(cocos.scene.Scene(BootStrap()))
+    scene1 = cocos.scene.Scene(BootStrap())
+    cocos.director.director.run(scene1)

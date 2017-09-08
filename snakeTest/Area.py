@@ -9,13 +9,17 @@ class Area(cocos.layer.ColorLayer):
     is_event_handler = True
 
     def __init__(self):
-        super(Area, self).__init__(250, 255, 255, 255, 1600, 800)
+        # super(Area, self).__init__(250, 255, 255, 255, 1600, 800)
+        super(Area, self).__init__(250, 255, 255, 255, director.get_window_size()[0], director.get_window_size()[1])
         self.center = (director.get_window_size()[0] / 2, director.get_window_size()[1] / 2)
         self.batch = cocos.batch.BatchNode()
         self.add(self.batch)
 
+        for i in range(5):
+            self.batch.add(Dot())
+
         self.snake = Snake()
-        self.add(self.snake, 10000)
+        self.add(self.snake, 9999)
         self.snake.init_body()
 
         # self.enemies = []
@@ -24,14 +28,12 @@ class Area(cocos.layer.ColorLayer):
 
         self.keys_pressed = set()
 
-        for i in range(30):
-            self.batch.add(Dot())
-
         self.schedule(self.update)
 
     def update(self, dt):
-        self.x = self.center[0] - self.snake.x
-        self.y = self.center[1] - self.snake.y
+        pass
+        # self.x = self.center[0] - self.snake.x
+        # self.y = self.center[1] - self.snake.y
 
     def add_enemy(self):
         enemy = Snake(True)
