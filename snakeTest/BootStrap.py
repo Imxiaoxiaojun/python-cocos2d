@@ -25,3 +25,4 @@ if __name__ == "__main__":
     cocos.director.director.init(caption="coco_snake")
     scene1 = cocos.scene.Scene(BootStrap())
     cocos.director.director.run(scene1)
+
